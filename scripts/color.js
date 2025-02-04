@@ -40,7 +40,13 @@ function renderColorGame() {
   document.querySelectorAll('.color-option-btn').forEach(button => {
     button.addEventListener('click', () => {
       const { background } = button.dataset;
-      alert(background)
+      
+      if(background == boxColor) {
+        alert('correct')
+      } else {
+        alert('wrong')
+      }
+
     })
   });
 };
@@ -55,7 +61,8 @@ function displayColorOptions(boxColor) {
     }
   });
 
-  const coloroptions = sets.colorSet;
+  let coloroptions = sets.colorSet;
+  coloroptions = shuffle(coloroptions);
   
   coloroptions.forEach(colorOption => {
     html += `
@@ -66,4 +73,15 @@ function displayColorOptions(boxColor) {
   });
 
   return html;
+}
+
+function shuffle(coloroptions) {
+  const newArray = [...coloroptions];
+
+  for(let i = newArray.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]]
+  }
+
+  return newArray;
 }
