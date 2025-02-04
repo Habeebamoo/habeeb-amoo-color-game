@@ -1,0 +1,37 @@
+body {
+  background-color: rgb(160, 160, 229);
+}
+
+.container {
+  height: 100vh;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  text-align: center;
+}
+
+.login-header {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  animation: bounce .7s infinite alternate ease-in-out;
+  color: white;
+}
+
+.login-button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: yellow;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0) scaleX(1.1);
+  }
+
+  100% {
+    transform: translateY(-20px) scaleX(1);
+  }
+}
