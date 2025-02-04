@@ -17,6 +17,7 @@ const colorSets = [
 ];
 
 renderColorGame();
+const score = document.querySelector('.gameScore');
 
 function renderColorGame() {
   let html;
@@ -37,7 +38,6 @@ function renderColorGame() {
   document.querySelectorAll('.color-option-btn').forEach(button => {
     button.addEventListener('click', () => {
       const { background } = button.dataset;
-      const score = document.querySelector('.gameScore');
       const message = document.querySelector('.game-status');
 
       
@@ -100,4 +100,8 @@ function shuffle(coloroptions) {
 function displayMessage(elem, message, color) {
   elem.innerText = message;
   elem.style.color = color;
+}
+
+function newGame() {
+  window.location.reload()
 }
