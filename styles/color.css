@@ -22,9 +22,9 @@
 .game-status-bar {
   color: white;
   text-align: center;
-  font-family: cursive;
+  font-family: tahoma, sans-serif;
   margin: 10px 0;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 .color-box {
