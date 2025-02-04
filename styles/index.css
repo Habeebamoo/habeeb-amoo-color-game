@@ -2,13 +2,6 @@ body {
   background-color: rgb(160, 160, 229);
 }
 
-.container {
-  height: 100vh;  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .login-box {
   text-align: center;
 }

@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+.container {
+  height: 100vh;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 button {
   padding: 5px 10px;
   border: none;

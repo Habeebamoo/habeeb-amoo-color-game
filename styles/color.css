@@ -1,0 +1,62 @@
+.box {
+  background-color: rgb(160, 160, 229);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.gameInstructions {
+  color: rgb(255, 255, 255);
+  font-family: sans-serif;
+  font-size: 15px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.gameScore {
+  color: white;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.1em;
+}
+
+.hidden-color-box {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 10px 0;
+  font-family: bold;
+  font-size: 1.5em;
+  height: 100px;
+}
+
+.color-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.color-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-option button {
+  width: 100%;
+  padding: 10px;
+}
+
+.new-game {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.new-game button {
+  width: 100%;
+  padding: 10px;
+  background-color: tomato;
+  color: white;
+}
