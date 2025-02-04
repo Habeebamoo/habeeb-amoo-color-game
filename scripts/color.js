@@ -14,7 +14,7 @@ const colorSets = [
     colorSet: ['rgb(10, 173, 10)', 'green', 'rgb(19, 107, 19)', 'rgb(85, 219, 85)', 'rgb(54, 124, 54)', 'rgb(83, 212, 83)']
 
   }
-]
+];
 
 renderColorGame();
 
@@ -24,9 +24,6 @@ function renderColorGame() {
   const boxColor = colors[Math.floor(Math.random() * colors.length)];
 
   html = `
-    <div class="dashboard">
-      <p class="gameScore">Score: 2, High Score: 5</p>
-    </div>
     <div class="color-box" style="background: ${boxColor}" data-background="${boxColor}">
       
     </div>
@@ -40,13 +37,27 @@ function renderColorGame() {
   document.querySelectorAll('.color-option-btn').forEach(button => {
     button.addEventListener('click', () => {
       const { background } = button.dataset;
+      const score = document.querySelector('.gameScore');
+      const message = document.querySelector('.game-status');
+
       
       if(background == boxColor) {
-        alert('correct')
+        score.innerHTML++;
+        displayMessage(message, 'Correct!', 'green');
+        setTimeout(() => {
+          message.style.display = 'none';
+        }, 1000);
+
       } else {
-        alert('wrong')
+        displayMessage(message, 'Oops try again!', 'red')
+        setTimeout(() => {
+          message.style.display = 'none';
+        }, 1000);
+
       }
 
+      renderColorGame();
+      message.style.display = 'block';
     })
   });
 };
@@ -84,4 +95,9 @@ function shuffle(coloroptions) {
   }
 
   return newArray;
+}
+
+function displayMessage(elem, message, color) {
+  elem.innerText = message;
+  elem.style.color = color;
 }

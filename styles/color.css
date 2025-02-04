@@ -16,15 +16,23 @@
   background-color: rgb(83, 212, 83);
 }
 
-.gameScore {
+.game-score {
   color: white;
   text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 1.1em;
 }
 
+.game-status-bar {
+  color: white;
+  text-align: center;
+  font-family: cursive;
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
 .color-box {
-  background-color: white;
+  border: 3px solid white;
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -38,7 +46,7 @@
 
 .color-options {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
   margin-bottom: 30px;
 }
@@ -52,6 +60,7 @@
 .color-option button {
   width: 100%;
   padding: 20px;
+  border: 3px solid white;
   cursor: pointer;
 }
 
@@ -67,6 +76,6 @@
 .new-game button {
   width: 100%;
   padding: 10px;
-  background-color: tomato;
+  background-color: black;
   color: white;
 }
