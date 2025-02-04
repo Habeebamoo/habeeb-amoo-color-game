@@ -1,107 +1,69 @@
-const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'white', 'black'];
+const colors = ['red', 'yellow', 'green'];
+
+const colorSets = [
+  {
+    color: 'red',
+    colorSet: ['tomato', 'rgb(201, 22, 22)', 'red', 'rgb(133, 23, 23)', 'orange', 'rgb(228, 26, 26)']
+
+  }, {
+    color: 'yellow',
+    colorSet: ['rgb(204, 204, 31)', 'rgb(240, 240, 32)', 'yellow', 'rgb(22, 236, 15)', 'rgb(30, 189, 25)', 'rgb(193, 206, 21)']
+
+  }, {
+    color: 'green',
+    colorSet: ['rgb(10, 173, 10)', 'green', 'rgb(19, 107, 19)', 'rgb(85, 219, 85)', 'rgb(54, 124, 54)', 'rgb(83, 212, 83)']
+
+  }
+]
 
 renderColorGame();
 
 function renderColorGame() {
   let html;
 
-  const random = Math.floor(Math.random() * colors.length);
-  const hiddenColor = colors[random];
-  console.log(`hidden color: ${hiddenColor}`);
+  const boxColor = colors[Math.floor(Math.random() * colors.length)];
 
   html = `
     <div class="dashboard">
-      <p class="gameScore">Score: 20</p>
+      <p class="gameScore">Score: 2, High Score: 5</p>
     </div>
-    <div class="hidden-color-box">
-      <p data-hidden-color="${hiddenColor}">?</p>
+    <div class="color-box" style="background: ${boxColor}" data-background="${boxColor}">
+      
     </div>
     <div class="color-options">
-      ${colorOptions(hiddenColor)}
+      ${displayColorOptions(boxColor)}
     </div>
   `;
 
-  document.querySelector('.color-box').innerHTML = html;
+  document.querySelector('.color-game').innerHTML = html;
+
+  document.querySelectorAll('.color-option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const { background } = button.dataset;
+      alert(background)
+    })
+  });
 };
 
-function getRandomColors() {
-  const colorArray = [];
-
-  while(colorArray.length < 5) {
-    let random = colors[Math.floor(Math.random() * colors.length)];
-    if(!colorArray.includes(random)) {
-      colorArray.push(random);
-    }
-  };
-
-  return colorArray;
-}
-
-function colorOptions(hiddenColor) {
+function displayColorOptions(boxColor) {
   let html = '';
-  let pushStatus;
+  let sets = '';
 
-  const colorArray = getRandomColors();
+  colorSets.forEach(colorset => {
+    if(boxColor == colorset.color) {
+      sets = colorset;
+    }
+  });
 
-  if(!colorArray.includes(hiddenColor)) {
-    pushStatus = 'false';
-  } else {
-    pushStatus = 'true';
-  }
-
-  if(pushStatus == 'false') {
-    colorArray.push(hiddenColor);
-  } else {
-    colors.forEach(color => {
-      if(!colorArray.includes(color)) {
-        colorArray.push(color)
-      }
-    })
-  };
-
-  console.log(`itContains: ${pushStatus}`);
-
-  filterThe(colorArray);
-  console.log(colorArray);
-
-  html = `
-    <div class="color-option">
-      <button></button>
-    </div>
-    <div class="color-option">
-      <button>Yellow</button>
-    </div>
-    <div class="color-option">
-      <button>White</button>
-    </div>
-    <div class="color-option">
-      <button>Blue</button>
-    </div>
-    <div class="color-option">
-      <button>Green</button>
-    </div>
-    <div class="color-option">
-      <button>Pink</button>
-    </div>
-  `;
+  const coloroptions = sets.colorSet;
+  
+  coloroptions.forEach(colorOption => {
+    html += `
+      <div class="color-option">
+        <button style="background-color: ${colorOption}" data-background="${colorOption}" class="color-option-btn"></button>
+      </div>
+    `;
+  });
 
   return html;
-};
-
-/*
-function shuffle(colorArray) {
-  const newArray = [...colorArray];
-
-  for(let i = newArray.length - 1; i > 0; i++) {
-    let j = Math.floor(Math.random() * (i + 1));
-    newArray[i], newArray[j] = newArray[j], newArray[i]
-  };
-
-  return newArray;
-}*/
-
-function filterThe(colorArray) {
-  while(colorArray.length > 6) {
-    colorArray.pop();
-  }
 }
