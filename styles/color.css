@@ -1,3 +1,7 @@
+body {
+  background: #333;
+}
+
 .box {
   background-color: rgb(160, 160, 229);
   padding: 20px;
@@ -26,6 +30,12 @@
   font-family: tahoma, sans-serif;
   margin: 10px 0;
   font-size: 1.2em;
+}
+
+.gameScore {
+  background: black;
+  color: white;
+  padding: 10px;
 }
 
 .color-box {
