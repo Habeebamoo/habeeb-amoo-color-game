@@ -20,12 +20,10 @@ renderColorGame();
 const score = document.querySelector('.gameScore');
 
 function renderColorGame() {
-  let html;
-
   const boxColor = colors[Math.floor(Math.random() * colors.length)];
 
-  html = `
-    <div class="color-box" style="background: ${boxColor}" data-background="${boxColor}">
+  const html = `
+    <div class="color-box" style="background: ${boxColor}" data-background="${boxColor}" data-testid="colorBox">
       
     </div>
     <div class="color-options">
@@ -39,9 +37,9 @@ function renderColorGame() {
     button.addEventListener('click', () => {
       const { background } = button.dataset;
       const message = document.querySelector('.game-status');
-
       
       if(background == boxColor) {
+
         score.innerHTML++;
         displayMessage(message, 'Correct!', 'green');
         setTimeout(() => {
@@ -49,6 +47,7 @@ function renderColorGame() {
         }, 1000);
 
       } else {
+
         displayMessage(message, 'Oops try again!', 'red')
         setTimeout(() => {
           message.style.display = 'none';
@@ -64,21 +63,21 @@ function renderColorGame() {
 
 function displayColorOptions(boxColor) {
   let html = '';
-  let sets = '';
+  let buttonSets = '';
 
   colorSets.forEach(colorset => {
     if(boxColor == colorset.color) {
-      sets = colorset;
+      buttonSets = colorset;
     }
   });
 
-  let coloroptions = sets.colorSet;
+  let coloroptions = buttonSets.colorSet;
   coloroptions = shuffle(coloroptions);
   
   coloroptions.forEach(colorOption => {
     html += `
       <div class="color-option">
-        <button style="background-color: ${colorOption}" data-background="${colorOption}" class="color-option-btn"></button>
+        <button style="background-color: ${colorOption}" data-background="${colorOption}" class="color-option-btn" data-testid="colorOption"></button>
       </div>
     `;
   });

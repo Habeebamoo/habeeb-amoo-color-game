@@ -10,18 +10,18 @@
 <body>
   <div class="container">
     <div class="box">
-      <p class="gameInstructions">Guess The color that matches the box!, Good luck</p>
+      <p class="game-instructions" data-testid="gameInstructions">Guess The color that matches the box!, Good luck</p>
       <div class="dashboard">
-        <p class="game-score">Score: <span class="gameScore">0</span></p>
+        <p class="game-score">Score: <span class="gameScore" data-testid="score">0</span></p>
       </div>
       <div class="game-status-bar">
-        <p class="game-status"></p>
+        <p class="game-status" data-testid="gameStatus"></p>
       </div>
       <div class="color-game">
 
       </div>
       <div class="new-game">
-        <button onclick="newGame()">New Game</button>
+        <button onclick="newGame()" data-testid="newGameButton">New Game</button>
       </div>
     </div>
   </div>

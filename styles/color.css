@@ -4,16 +4,12 @@
   border-radius: 15px;
 }
 
-.gameInstructions {
+.game-instructions {
   color: rgb(255, 255, 255);
   font-family: sans-serif;
   font-size: 15px;
   text-align: center;
   margin: 20px 0;
-}
-
-.me {
-  background-color: rgb(83, 212, 83);
 }
 
 .game-score {
