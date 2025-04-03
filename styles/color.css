@@ -3,7 +3,7 @@ body {
 }
 
 .box {
-  background-color: rgb(38, 66, 143);
+  background-color: transparent;
   padding: 20px;
   border-radius: 15px;
 }
